@@ -1,28 +1,38 @@
-<h2>Sign up</h2>
+<h2>アカウントを作成しましょう</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+    <p>名前を入力してください</p>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <p>ニックネームを入力してください</p>
+    <%= f.text_field :nickname %>
+  </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <p>メールアドレスを入力してください</p>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <p>パスワードを設定してください</p>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>英数6文字以上で設定してください</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <p>パシワード(確認用)</p>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規作成" %>
   </div>
 <% end %>
 
